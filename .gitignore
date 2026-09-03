@@ -438,6 +438,9 @@ FodyWeavers.xsd
 PROJECT_MEMORY.md
 CLAUDE.md
 
+.images/*
+!.images/logo.png
+
 # Auto-committer ignored files
 *.temp
 *.cache
