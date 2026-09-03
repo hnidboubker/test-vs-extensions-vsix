@@ -437,3 +437,20 @@ FodyWeavers.xsd
 
 PROJECT_MEMORY.md
 CLAUDE.md
+
+# Auto-committer ignored files
+*.temp
+*.cache
+*.dll
+*.exe
+.vscode/**
+.idea/**
+.vs/**
+node_modules/**
+.git/**
+dist/**
+build/**
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
