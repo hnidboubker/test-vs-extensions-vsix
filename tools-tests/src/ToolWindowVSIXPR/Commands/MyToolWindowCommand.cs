@@ -1,11 +1,16 @@
-﻿namespace ToolWindowVSIXPR
+﻿using System.Windows;
+using ToolWindowVSIXPR.Dialogs;
+
+namespace ToolWindowVSIXPR
 {
     [Command(PackageIds.MyCommand)]
     internal sealed class MyToolWindowCommand : BaseCommand<MyToolWindowCommand>
     {
         protected override Task ExecuteAsync(OleMenuCmdEventArgs e)
         {
-            return MyToolWindow.ShowAsync();
+            var welcomeDialog = new WelcomeDialogWindow();
+            welcomeDialog.ShowDialog();
+            return Task.CompletedTask;
         }
     }
 }
