@@ -11,13 +11,18 @@ namespace ToolWindowVSIXPR.Dialogs.Models
 
         public static async Task<ProjectConfigurationModel> LoadConfigurationAsync(string projectPath)
         {
+            return await Task.Run(() => LoadConfiguration(projectPath));
+        }
+
+        private static ProjectConfigurationModel LoadConfiguration(string projectPath)
+        {
             try
             {
                 string configPath = Path.Combine(projectPath, ConfigFileName);
 
                 if (File.Exists(configPath))
                 {
-                    string json = await File.ReadAllTextAsync(configPath);
+                    string json = File.ReadAllText(configPath);
                     var config = JsonConvert.DeserializeObject<ProjectConfigurationModel>(json);
                     return config ?? new ProjectConfigurationModel();
                 }
@@ -32,6 +37,11 @@ namespace ToolWindowVSIXPR.Dialogs.Models
 
         public static async Task SaveConfigurationAsync(string projectPath, ProjectConfigurationModel config)
         {
+            await Task.Run(() => SaveConfiguration(projectPath, config));
+        }
+
+        private static void SaveConfiguration(string projectPath, ProjectConfigurationModel config)
+        {
             try
             {
                 string configPath = Path.Combine(projectPath, ConfigFileName);
@@ -40,7 +50,7 @@ namespace ToolWindowVSIXPR.Dialogs.Models
                 var settings = new JsonSerializerSettings { Formatting = Formatting.Indented };
                 string json = JsonConvert.SerializeObject(config, settings);
 
-                await File.WriteAllTextAsync(configPath, json);
+                File.WriteAllText(configPath, json);
             }
             catch (Exception ex)
             {
