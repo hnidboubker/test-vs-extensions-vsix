@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37614.0 d17.14
+VisualStudioVersion = 17.14.37614.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolWindowVSIXPR", "src\ToolWindowVSIXPR\ToolWindowVSIXPR.csproj", "{FE396FD6-4527-4700-B082-E07B7856F521}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolWindowVSIXPR.Tests", "tests\ToolWindowVSIXPR.Tests\ToolWindowVSIXPR.Tests.csproj", "{6E388554-E6A6-4AB8-A323-01ED381C2A8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,18 @@ Global
 		{FE396FD6-4527-4700-B082-E07B7856F521}.Release|arm64.Build.0 = Release|arm64
 		{FE396FD6-4527-4700-B082-E07B7856F521}.Release|x86.ActiveCfg = Release|x86
 		{FE396FD6-4527-4700-B082-E07B7856F521}.Release|x86.Build.0 = Release|x86
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Debug|arm64.Build.0 = Debug|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Debug|x86.Build.0 = Debug|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Release|arm64.ActiveCfg = Release|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Release|arm64.Build.0 = Release|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Release|x86.ActiveCfg = Release|Any CPU
+		{6E388554-E6A6-4AB8-A323-01ED381C2A8B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
