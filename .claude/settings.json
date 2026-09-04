@@ -1,22 +1,24 @@
 {
-  "github": {
-    "enabled": true,
-    "repository": "hnidboubker/test-vs-extensions-vsix",
-    "token_env": "GITHUB_TOKEN",
-    "use_keyring": true,
-    "auto_create_issues": true,
-    "issue_labels": ["bug", "auto-detected"],
-    "issue_assignee": "hnidboubker"
+  "permissions": {
+    "deny": [
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(git commit)",
+      "Bash(git commit *)",
+      "Bash(git merge)",
+      "Bash(git merge *)",
+      "Bash(git rebase)",
+      "Bash(git rebase *)",
+      "Bash(git reset)",
+      "Bash(git reset *)",
+      "Bash(git clean)",
+      "Bash(git clean *)",
+      "Bash(git checkout -- *)",
+      "Bash(git restore)",
+      "Bash(git restore *)",
+      "Bash(git branch -D *)",
+      "Bash(git branch -d *)"
+    ]
   },
-  "security": {
-    "store_credentials": "system_keyring",
-    "encrypt_logs": true,
-    "audit_enabled": true
-  },
-  "mcp": {
-    "github": {
-      "enabled": true,
-      "type": "github-api-v3"
-    }
-  }
+  "enabledMcpjsonServers": ["github"]
 }
