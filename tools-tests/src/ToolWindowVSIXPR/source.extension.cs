@@ -12,7 +12,7 @@ namespace ToolWindowVSIXPR
         public const string Name = "ToolWindowVSIXPR";
         public const string Description = @"Power Tools Test";
         public const string Language = "fr-FR";
-        public const string Version = "1.0";
+        public const string Version = "1.0.1";
         public const string Author = "Company";
         public const string Tags = "";
         public const bool IsPreview = false;

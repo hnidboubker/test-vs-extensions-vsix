@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
+using WpfMessageBox = System.Windows.MessageBox;
 using ToolWindowVSIXPR.Dialogs.Models;
 using ToolWindowVSIXPR.Dialogs.Steps;
 
@@ -22,7 +23,7 @@ namespace ToolWindowVSIXPR.Dialogs
             this.configuration = new ProjectConfigurationModel();
 
             InitializeStepper();
-            LoadStep1();
+            _ = LoadStep1();
         }
 
         private void InitializeStepper()
@@ -31,7 +32,7 @@ namespace ToolWindowVSIXPR.Dialogs
             UpdateNavigationButtons();
         }
 
-        private async void LoadStep1()
+        private async Task LoadStep1()
         {
             if (!string.IsNullOrEmpty(projectPath))
             {
@@ -54,7 +55,7 @@ namespace ToolWindowVSIXPR.Dialogs
             StepIndicatorTextBlock.Text = $"Step {currentStep} of 2";
         }
 
-        private void OnPreviousClick(object sender, RoutedEventArgs e)
+        private async void OnPreviousClick(object sender, RoutedEventArgs e)
         {
             if (currentStep > 1)
             {
@@ -74,13 +75,13 @@ namespace ToolWindowVSIXPR.Dialogs
             }
         }
 
-        private void OnNextClick(object sender, RoutedEventArgs e)
+        private async void OnNextClick(object sender, RoutedEventArgs e)
         {
             if (currentStep == 1)
             {
                 if (!step1.ValidateInput())
                 {
-                    MessageBox.Show("Please fill in the Project Name field.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    WpfMessageBox.Show("Please fill in the Project Name field.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
@@ -99,7 +100,7 @@ namespace ToolWindowVSIXPR.Dialogs
             {
                 if (!step2.ValidateInput())
                 {
-                    MessageBox.Show("Please fill in the Core Source Path field.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    WpfMessageBox.Show("Please fill in the Core Source Path field.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
@@ -108,18 +109,18 @@ namespace ToolWindowVSIXPR.Dialogs
                 configuration.DbContextPath = step2Config.DbContextPath;
                 configuration.EntityFrameworkProject = step2Config.EntityFrameworkProject;
 
-                FinalizeConfiguration();
+                await FinalizeConfiguration();
             }
         }
 
-        private async void FinalizeConfiguration()
+        private async Task FinalizeConfiguration()
         {
             if (!string.IsNullOrEmpty(projectPath))
             {
                 await ConfigurationManager.SaveConfigurationAsync(projectPath, configuration);
             }
 
-            MessageBox.Show($"Configuration saved successfully!\n\nProject: {configuration.ProjectName}", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            WpfMessageBox.Show($"Configuration saved successfully!\n\nProject: {configuration.ProjectName}", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
             Window parentWindow = Window.GetWindow(this);
             if (parentWindow != null)
