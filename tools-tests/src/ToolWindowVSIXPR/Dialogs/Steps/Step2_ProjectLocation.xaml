@@ -1,0 +1,89 @@
+<UserControl x:Class="ToolWindowVSIXPR.Dialogs.Steps.Step2_ProjectLocation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:toolkit="clr-namespace:Community.VisualStudio.Toolkit;assembly=Community.VisualStudio.Toolkit"
+             toolkit:Themes.UseVsTheme="True"
+             Background="{DynamicResource VsBrush.Window}">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0"
+                   Text="Step 2 — Project Location"
+                   FontSize="16"
+                   FontWeight="Bold"
+                   Foreground="{DynamicResource VsBrush.WindowText}"
+                   Margin="0,0,0,15"/>
+
+        <!-- Core Source Path -->
+        <TextBlock Grid.Row="1"
+                   Text="Core Source Path *"
+                   Foreground="{DynamicResource VsBrush.WindowText}"
+                   Margin="0,0,0,5"/>
+        <Grid Grid.Row="2" Margin="0,0,0,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="CoreSourcePathTextBox"
+                     Grid.Column="0"
+                     Padding="8"
+                     Background="{DynamicResource VsBrush.CommandBarGradientEnd}"
+                     Foreground="{DynamicResource VsBrush.WindowText}"/>
+            <Button Grid.Column="1"
+                    Content="Browse..."
+                    Click="OnBrowseCoreSourcePath"
+                    Padding="12,8"
+                    Margin="8,0,0,0"
+                    Background="{DynamicResource VsBrush.CommandBarGradientEnd}"
+                    Foreground="{DynamicResource VsBrush.WindowText}"/>
+        </Grid>
+
+        <!-- DB Context Path -->
+        <TextBlock Grid.Row="3"
+                   Text="DB Context Path (optional)"
+                   Foreground="{DynamicResource VsBrush.WindowText}"
+                   Margin="0,0,0,5"/>
+        <Grid Grid.Row="4" Margin="0,0,0,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="DbContextPathTextBox"
+                     Grid.Column="0"
+                     Padding="8"
+                     Background="{DynamicResource VsBrush.CommandBarGradientEnd}"
+                     Foreground="{DynamicResource VsBrush.WindowText}"/>
+            <Button Grid.Column="1"
+                    Content="Browse..."
+                    Click="OnBrowseDbContextPath"
+                    Padding="12,8"
+                    Margin="8,0,0,0"
+                    Background="{DynamicResource VsBrush.CommandBarGradientEnd}"
+                    Foreground="{DynamicResource VsBrush.WindowText}"/>
+        </Grid>
+
+        <!-- Entity Framework Project -->
+        <TextBlock Grid.Row="5"
+                   Text="Entity Framework Project (optional)"
+                   Foreground="{DynamicResource VsBrush.WindowText}"
+                   Margin="0,0,0,5"/>
+        <TextBox x:Name="EntityFrameworkProjectTextBox"
+                 Grid.Row="6"
+                 Padding="8"
+                 Margin="0,0,0,15"
+                 Background="{DynamicResource VsBrush.CommandBarGradientEnd}"
+                 Foreground="{DynamicResource VsBrush.WindowText}"/>
+    </Grid>
+</UserControl>
